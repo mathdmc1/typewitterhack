@@ -20,8 +20,7 @@ def main():
     spans = driver.find_elements(By.XPATH, "//span[@unselectable='on']")
     texto = ""
     print(len(spans))
-    for span,i in spans, range(len(spans)):
-        print(f"{i}")
+    for span in spans:
         print(span.text)
         
         
