@@ -35,20 +35,12 @@ def main():
 
     escribir=WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH, "//input[@type='text']")))
     time.sleep(9)
-    human_type(escribir, texto, min_delay=0.1, max_delay=0.1, space_pause=0)
+    type(escribir, texto)
     time.sleep(10)
     driver.quit()
 
 
-
-
-
-
-
-
-
-
-def human_type(el, text, min_delay=0.03, max_delay=0.15, space_pause=0.08):
+def type(el, text):
     el.click()
     try:
         el.clear()
@@ -59,9 +51,8 @@ def human_type(el, text, min_delay=0.03, max_delay=0.15, space_pause=0.08):
             el.send_keys(Keys.ENTER)
         else:
             el.send_keys(ch)
-        time.sleep(random.uniform(min_delay, max_delay))
-        if ch == " ":
-            time.sleep(space_pause)
+        time.sleep(random.randint(1, 3) / 1000)
+    
 
 
 
