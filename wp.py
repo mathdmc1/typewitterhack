@@ -26,6 +26,7 @@ def main():
             texto+=" "+ span.text
             break
         texto+=span.text
+        print("Span number: " + str(num))
         print(span.text)
         
         
