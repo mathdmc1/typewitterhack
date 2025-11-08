@@ -32,8 +32,8 @@ def main():
     print("Texto a escribir: " +texto)
 
 
-    escribir=driver.find_element(By.XPATH, "//input[@type='text']")
-    time.sleep(5)
+    escribir=WebDriverWait(driver,10).until(EC.presence_of_element_located((By.XPATH, "//input[@type='text']")))
+    time.sleep(9)
     human_type(escribir, texto, min_delay=0.1, max_delay=0.1, space_pause=0)
     time.sleep(10)
     driver.quit()
