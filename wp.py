@@ -19,8 +19,13 @@ def main():
 
     spans = driver.find_elements(By.XPATH, "//span[@unselectable='on']")
     texto = ""
-    print(len(spans))
+    num=0
     for span in spans:
+        num+=1
+        if num==3:
+            texto+=" "+ span.text
+            break
+        texto+=span.text
         print(span.text)
         
         
@@ -29,7 +34,7 @@ def main():
 
     escribir=driver.find_element(By.XPATH, "//input[@type='text']")
     time.sleep(5)
-    human_type(escribir, texto, min_delay=0.05, max_delay=0.18, space_pause=0.12)
+    human_type(escribir, texto, min_delay=0.1, max_delay=0.1, space_pause=0)
     time.sleep(10)
     driver.quit()
 
